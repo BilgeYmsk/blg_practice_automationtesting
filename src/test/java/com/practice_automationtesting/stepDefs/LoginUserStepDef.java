@@ -1,7 +1,7 @@
 package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.LoginPage;
-import com.practice_automationtesting.pages.MyAccountPage;
+import com.practice_automationtesting.pages.MyAccount_RegistrationPage;
 import com.practice_automationtesting.utilities.ConfigurationReader;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class LoginUserStepDef {
 
     LoginPage login=new LoginPage();
-    MyAccountPage myAccountPage=new MyAccountPage();
+    MyAccount_RegistrationPage myAccountPage=new MyAccount_RegistrationPage();
 
     @Then("Enter registered username in username textbox")
     public void enter_registered_username_in_username_textbox() {login.login("username");}

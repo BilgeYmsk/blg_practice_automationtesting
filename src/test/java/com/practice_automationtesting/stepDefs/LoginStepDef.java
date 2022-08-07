@@ -1,6 +1,6 @@
 package com.practice_automationtesting.stepDefs;
 
-import com.practice_automationtesting.pages.MyAccountPage;
+import com.practice_automationtesting.pages.MyAccount_RegistrationPage;
 import com.practice_automationtesting.utilities.BrowserUtils;
 import com.practice_automationtesting.utilities.ConfigurationReader;
 import com.practice_automationtesting.utilities.Driver;
@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class LoginStepDef {
 
-    MyAccountPage myAccountPage = new MyAccountPage();
+    MyAccount_RegistrationPage myAccountPage = new MyAccount_RegistrationPage();
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
