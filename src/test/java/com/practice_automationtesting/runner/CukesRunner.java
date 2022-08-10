@@ -8,11 +8,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports",
+                "de.monochromata.cucumber.report.PrettyReports:target/cucumber",
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features",
         glue="com/practice_automationtesting/stepDefs",
         dryRun = false,
-        tags = "@Login"
+        tags = "@Shop"
 )
 
 public class CukesRunner {

@@ -29,7 +29,7 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", "screenshot");
         }
 
-        Driver.closeDriver();
+      Driver.closeDriver();
         System.out.println("----This Statement comes from After------");
     }
 }
