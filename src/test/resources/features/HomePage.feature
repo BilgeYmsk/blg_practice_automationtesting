@@ -6,10 +6,10 @@ Feature: Home Page Test
     Then  the user click on Shop Menu
     And   the user click on Home menu button
 
-
+  @wip
   Scenario:Home Page with three Sliders only
-    And   Test whether the Home page has Three Sliders only
-    Then  The Home page must contains only three sliders
+    And   Test whether the Home page has 3 Sliders only
+    Then  The Home page must contains only 3 sliders
 
   Scenario:Home Page with three Arrivals only
     And   Test whether the Home page has Three Arrivals only
