@@ -1,13 +1,17 @@
 package com.practice_automationtesting.stepDefs;
 
+import com.practice_automationtesting.pages.FirstElementPage;
 import com.practice_automationtesting.pages.Homapage_Page;
 import com.practice_automationtesting.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
+import static org.junit.Assert.*;
+
 public class HomePage_StepDef {
 
     Homapage_Page homapagePage = new Homapage_Page();
+    FirstElementPage firstElementPage = new FirstElementPage();
 
     @Then("the user click on Home menu button")
     public void the_user_click_on_Home_menu_button() {
@@ -22,54 +26,56 @@ public class HomePage_StepDef {
 
     @Then("The Home page must contains only {int} sliders")
     public void theHomePageMustContainsOnlySliders(int slider) {
-        homapagePage.imgKntl(slider);
+        homapagePage.sliderSize_Mtd(slider);
 
     }
 
-
-    @Then("Test whether the Home page has Three Arrivals only")
-    public void test_whether_the_Home_page_has_Three_Arrivals_only() {
-
-    }
-
-    @Then("The Home page must contains only three Arrivals")
-    public void the_Home_page_must_contains_only_three_Arrivals() {
-
+    @Then("Verify The Home page must contains only {int} Arrivals")
+    public void verify_The_Home_page_must_contains_only_Arrivals(int arrival) {
+        homapagePage.arrivalsSize_Mtd(arrival);
     }
 
     @Then("Now click the image in the Arrivals")
     public void now_click_the_image_in_the_Arrivals() {
+        homapagePage.firstElementArrival_loc.click();
 
     }
 
     @Then("Test whether it is navigating to next page where the user can add that book into his basket.")
-    public void test_whether_it_is_navigating_to_next_page_where_the_user_can_add_that_book_into_his_basket() {
+    public void test_whether_it_is_navigating_to_next_page_where_the_user_can_add_that_book_into_his_basket() throws InterruptedException {
 
-    }
 
-    @Then("Image should be clickable and shoul navigate to next page where user can add that book to his basket")
-    public void image_should_be_clickable_and_shoul_navigate_to_next_page_where_user_can_add_that_book_to_his_basket() {
+        assertTrue(firstElementPage.addBasket_btn_loc.isDisplayed());
+        firstElementPage.addBasket_btn_loc.click();
+        BrowserUtils.scrollToElement(firstElementPage.description_loc);
+        Thread.sleep(2000);
+
 
     }
 
     @Then("Click on Description tab for the book you clicked on.")
     public void click_on_Description_tab_for_the_book_you_clicked_on() {
+        firstElementPage.description_loc.click();
+
 
     }
 
     @Then("There should be a description regarding that book the user clicked on")
     public void there_should_be_a_description_regarding_that_book_the_user_clicked_on() {
+        assertTrue(firstElementPage.productDescription_loc.isDisplayed());
 
     }
 
-    @Then("Now clock on Reviews tab for the book you clicked on.")
-    public void now_clock_on_Reviews_tab_for_the_book_you_clicked_on() {
+    @Then("Now click on Reviews tab for the book you clicked on.")
+    public void now_click_on_Reviews_tab_for_the_book_you_clicked_on() {
+        firstElementPage.reviewsBtn_loc.click();
 
     }
 
     @Then("There should be a Reviews regarding that book the user clicked on")
     public void there_should_be_a_Reviews_regarding_that_book_the_user_clicked_on() {
 
+        assertTrue(firstElementPage.regardingReviews_loc.isDisplayed());
     }
 
     @Then("Click on the Add To Basket button which adds that book to your basket")
@@ -216,7 +222,6 @@ public class HomePage_StepDef {
     public void on_clicking_place_order_button_user_completes_the_process_where_the_page_navigates_to_Order_confirmation_page_with_order_details_bank_details_customer_details_and_billing_details() {
 
     }
-
 
 
 }

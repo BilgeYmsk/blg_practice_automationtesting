@@ -6,31 +6,29 @@ Feature: Home Page Test
     Then  the user click on Shop Menu
     And   the user click on Home menu button
 
-  @wip
+
   Scenario:Home Page with three Sliders only
     And   Test whether the Home page has 3 Sliders only
     Then  The Home page must contains only 3 sliders
 
+  @arrivals
   Scenario:Home Page with three Arrivals only
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+
+    Then  Verify The Home page must contains only 3 Arrivals
   #Scenario: Home Page-Images in Arrivals should navigate
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
   #Scenario: Home Page Arrivals-Images-Description
     And   Click on Description tab for the book you clicked on.
     Then  There should be a description regarding that book the user clicked on
   #Scenario: Home Page Arrivals-Images-Reviews
-    And   Now clock on Reviews tab for the book you clicked on.
+    And   Now click on Reviews tab for the book you clicked on.
     Then  There should be a Reviews regarding that book the user clicked on
 
   Scenario:Home Page Arrivals-Images-Add to Basket
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+    Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   Click on the Add To Basket button which adds that book to your basket
     Then  User can view that Book in the Menu item with price.
     And   User can add a book by clicking on Add To Basket button which adds that book in to his Basket
@@ -40,11 +38,9 @@ Feature: Home Page Test
     And   Now it throws an error prompt like you must enter a value between 1 and 20
 
   Scenario:Home Page Arrivals-Images-Add to Basket-Items
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+    Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   Click on the Add To Basket button which adds that book to your basket
     Then  User can view that Book in the Menu item with price.
     And   Now click on Item link which navigates to proceed to check out page.
@@ -56,11 +52,9 @@ Feature: Home Page Test
     Then  User can able to apply coupon by entering ‘krishnasakinala’ in the coupon textbox which give 50rps off on the total price because the coupon is applicable for the book price > 450 rps
 
   Scenario:Home Page Arrivals-Images-Add to Basket-Items Remove book
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+    Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   Click on the Add To Basket button which adds that book to your basket
     Then  User can view that Book in the Menu item with price.
     And   Now click on Item link which navigates to proceed to check out page.
@@ -68,11 +62,9 @@ Feature: Home Page Test
     Then  User has the feasibility to remove the book at the time of check out also
 
   Scenario:Home Page Arrivals-Images-Add to Basket-Items-Add book and Check-out-Update Basket
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+    Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   Click on the Add To Basket button which adds that book to your basket
     Then  User can view that Book in the Menu item with price.
     And   Now click on Item link which navigates to proceed to check out page.
@@ -82,11 +74,9 @@ Feature: Home Page Test
     Then  User has the feasibility to Update Basket at the time of check out.
 
   Scenario:Home Page Arrivals-Images-Add to Basket-Items-Check-out-Book Final Price
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+    Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   Click on the Add To Basket button which adds that book to your basket
     Then  User can view that Book in the Menu item with price.
     And   Now click on Item link which navigates to proceed to check out page.
@@ -94,11 +84,9 @@ Feature: Home Page Test
     Then  User has the feasibility to find the total price of the books at to find the total price of the books at the time of check out
 
   Scenario:Home Page Arrivals-Images-Add to Basket-Items-Check-out-Total&Sub-Total condition
-    And   Test whether the Home page has Three Arrivals only
-    Then  The Home page must contains only three Arrivals
+    Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   Test whether it is navigating to next page where the user can add that book into his basket.
-    Then  Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   Click on the Add To Basket button which adds that book to your basket
     Then  User can view that Book in the Menu item with price.
     And   Now click on Item link which navigates to proceed to check out page.
