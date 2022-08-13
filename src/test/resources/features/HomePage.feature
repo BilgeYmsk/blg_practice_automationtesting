@@ -16,6 +16,7 @@ Feature: Home Page Test 1
     Then  Verify The Home page must contains only 3 Arrivals
   #Scenario: Home Page-Images in Arrivals should navigate
     And   Now click the image in the Arrivals
+    #//Image should be clickable and shoul navigate to next page where user can add that book to his basket
     And   User can add a book by clicking on Add To Basket button
     Then  Verify that book in to his Basket
   #Scenario: Home Page Arrivals-Images-Description

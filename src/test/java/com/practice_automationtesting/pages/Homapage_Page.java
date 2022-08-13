@@ -33,6 +33,9 @@ public class Homapage_Page extends BasePage {
     @FindBy(xpath = "//h3[text()='Selenium Ruby']")
     public WebElement firstElementArrival_loc;
 
+    @FindBy(xpath = "//h3[text()='Thinking in HTML']")
+    public WebElement secondElementArrival_loc;
+
     public void homePageMenu(String name){
 
         WebElement mainMenu= Driver.get().findElement(By.xpath("//li[*='"+name+"']"));

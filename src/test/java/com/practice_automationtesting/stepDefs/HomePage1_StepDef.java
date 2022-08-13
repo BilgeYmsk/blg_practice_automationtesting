@@ -36,6 +36,7 @@ public class HomePage1_StepDef {
     @Then("Now click the image in the Arrivals")
     public void now_click_the_image_in_the_Arrivals() {
         homapagePage.firstElementArrival_loc.click();
+
     }
 
     @And("User can add a book by clicking on Add To Basket button")

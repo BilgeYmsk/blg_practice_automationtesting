@@ -94,13 +94,16 @@ public class HomePage2_StepDef {
     @Then("verify to the total price because the coupon is applicable for the book price > {int} rps")
     public void verifyToTheTotalPriceBecauseTheCouponIsApplicableForTheBookPriceRps(int rps) {
 
-        String price = basketPage.shopTable_list_loc.get(3).getText();
+        String price = basketPage.shopTable_list_loc.get(0).getText();
         String totalPrice=price.replace("₹","");
         double price_total=Double.parseDouble(totalPrice);
-        System.out.println("totalPrice = " + totalPrice); //totalPrice = ₹459.00
-//String int e cevirmem lazim sonrarakamin büyük oldugunu verify etmem lazim
-
+//        System.out.println("totalPrice = " + totalPrice); //totalPrice = ₹500.00
         assertTrue(price_total>rps);
+
+        String actualApply_CouponText = basketPage.apply_Coupon_Msg_loc.getText();
+        String expectedApply_CouponText="Coupon code applied successfully.";
+        assertEquals(expectedApply_CouponText,actualApply_CouponText);
+
 
     }
 
@@ -122,32 +125,6 @@ public class HomePage2_StepDef {
 
 
 
-
-
-    @Then("User can view Billing Details,Order Details,Additional details and Payment gateway details.")
-    public void user_can_view_Billing_Details_Order_Details_Additional_details_and_Payment_gateway_details() {
-
-    }
-
-    @Then("Now user can fill his details in billing details form and can opt any payment in the payment gateway like Direct bank transfer,cheque,cash or paypal.")
-    public void now_user_can_fill_his_details_in_billing_details_form_and_can_opt_any_payment_in_the_payment_gateway_like_Direct_bank_transfer_cheque_cash_or_paypal() {
-
-    }
-
-    @Then("User has the feasibility to add coupon in the payment gateway page and also he can find billing,order and additional details.")
-    public void user_has_the_feasibility_to_add_coupon_in_the_payment_gateway_page_and_also_he_can_find_billing_order_and_additional_details() {
-
-    }
-
-    @Then("Now click on Place Order button to complete process")
-    public void now_click_on_Place_Order_button_to_complete_process() {
-
-    }
-
-    @Then("On clicking place-order button user completes the process where the page navigates to Order confirmation page with order details,bank details,customer details and billing details.")
-    public void on_clicking_place_order_button_user_completes_the_process_where_the_page_navigates_to_Order_confirmation_page_with_order_details_bank_details_customer_details_and_billing_details() {
-
-    }
 
 
 }
