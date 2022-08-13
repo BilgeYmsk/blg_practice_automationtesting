@@ -6,7 +6,8 @@ import com.practice_automationtesting.utilities.ConfigurationReader;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class LoginUserStepDef {
 

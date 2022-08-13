@@ -1,14 +1,14 @@
 package com.practice_automationtesting.pages;
 
 import com.practice_automationtesting.utilities.BrowserUtils;
-import static org.junit.Assert.*;
-
 import com.practice_automationtesting.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class Homapage_Page extends BasePage {
 

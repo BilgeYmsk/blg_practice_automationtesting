@@ -18,8 +18,8 @@ public class ShopStepDef {
         BrowserUtils.waitFor(1);
     }
 
-    @And("Adjust the filter by price between number")
-    public void adjustTheFilterByPriceBetweenToRps() throws InterruptedException {
+    @And("The User should be able to select two ranges of numbers as filters")
+    public void theUserShouldBeAbleToSelectTwoRangesOfNumbersAsFilters() throws InterruptedException {
 
 //        Actions move = new Actions(Driver.get());
 //        Action action = move.dragAndDropBy(shopPage.priceRight, 60, 0).build();
@@ -54,7 +54,4 @@ public class ShopStepDef {
 
 
     }
-
-
-
 }

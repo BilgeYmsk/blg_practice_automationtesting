@@ -1,4 +1,4 @@
-@HomePage
+@Test1
 Feature: Home Page Test 1
 
   Background: the user on the login and on MyAccount Menu
@@ -9,20 +9,21 @@ Feature: Home Page Test 1
 @sliders
   Scenario:Home Page with three Sliders only
     And   Test whether the Home page has 3 Sliders only
-    Then  The Home page must contains only 3 sliders
+    Then  Verify The Home page must contains only 3 sliders
 
   @arrivals
   Scenario:Home Page with three Arrivals only
     Then  Verify The Home page must contains only 3 Arrivals
   #Scenario: Home Page-Images in Arrivals should navigate
     And   Now click the image in the Arrivals
-    And   User can add a book by clicking on Add To Basket button which adds that book in to his Basket
+    And   User can add a book by clicking on Add To Basket button
+    Then  Verify that book in to his Basket
   #Scenario: Home Page Arrivals-Images-Description
-    And   Click on Description tab for the book you clicked on.
-    Then  There should be a description regarding that book the user clicked on
+    And   Click on Description tab
+    Then  Verify to There should be a description regarding that book the user clicked on
   #Scenario: Home Page Arrivals-Images-Reviews
     And   Now click on Reviews tab for the book you clicked on.
-    Then  There should be a Reviews regarding that book the user clicked on
+    Then  Verify to There should be a Reviews regarding that book the user clicked on
 
 
 

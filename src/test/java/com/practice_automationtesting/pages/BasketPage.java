@@ -1,12 +1,13 @@
 package com.practice_automationtesting.pages;
 
 import com.practice_automationtesting.utilities.Driver;
-import static org.junit.Assert.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 public class BasketPage extends BasePage{
 
@@ -19,12 +20,30 @@ public class BasketPage extends BasePage{
     @FindBy(xpath = "//a[@class='pull-down']")
     public WebElement pullDownBtn_loc;
 
+    @FindBy(xpath = "//div[@class='quantity']//input")
+    public WebElement quantity_loc;
+
 
     @FindBy(linkText = "Selenium Ruby")
     public WebElement product_SeleniumBook_loc;
 
     @FindBy(css = ".remove")
     public WebElement remove_loc;
+
+    @FindBy(xpath = "//input[@title='Qty']")
+    public WebElement quantityBox_loc;
+
+    @FindBy(xpath = "//table//tbody//tr//td[@class='product-subtotal']//span")
+    public WebElement total_Amount_loc;
+
+    @FindBy(xpath = "//input[@name='update_cart']")
+    public WebElement update_basket_loc;
+
+    @FindBy(xpath = "(//span[@class='woocommerce-Price-amount amount'])[5]")
+    public  WebElement basketTotalAmount_loc;
+
+    @FindBy(xpath = "//div//div//a[@class='checkout-button button alt wc-forward']")
+    public WebElement proceedToCheckOut_loc;
 
     @FindBy(xpath = "//div//a[@class='button wc-forward']")
     public WebElement viewBasket_loc;

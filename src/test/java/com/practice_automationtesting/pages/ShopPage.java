@@ -1,10 +1,6 @@
 package com.practice_automationtesting.pages;
 
-import com.practice_automationtesting.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class ShopPage extends BasePage{
