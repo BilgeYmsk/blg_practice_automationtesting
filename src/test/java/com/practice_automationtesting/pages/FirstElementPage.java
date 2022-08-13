@@ -19,4 +19,19 @@ public class FirstElementPage extends BasePage{
 
     @FindBy(xpath = "//h2[text()='Reviews']")
     public WebElement regardingReviews_loc;
+
+    @FindBy(xpath = "//span[@class='amount']")
+    public WebElement itemAmountBtn_loc;
+
+    @FindBy(xpath = "//div[@class='woocommerce-message']")
+    public WebElement message_loc;
+
+    @FindBy(xpath = "//input[@title='Qty']")
+    public WebElement productStuck;
+
+    @FindBy(xpath = "//div//p[@class='stock in-stock']")
+    public WebElement stock_loc;
+
+    @FindBy(xpath = "//input[@name='add-to-cart']")
+    public WebElement hiddenText_loc;
 }

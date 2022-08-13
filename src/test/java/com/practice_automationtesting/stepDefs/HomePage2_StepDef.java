@@ -1,117 +1,87 @@
 package com.practice_automationtesting.stepDefs;
 
+import com.practice_automationtesting.pages.BasketPage;
 import com.practice_automationtesting.pages.FirstElementPage;
-import com.practice_automationtesting.pages.Homapage_Page;
 import com.practice_automationtesting.utilities.BrowserUtils;
+import com.practice_automationtesting.utilities.ConfigurationReader;
+import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class HomePage_StepDef {
+public class HomePage2_StepDef {
 
-    Homapage_Page homapagePage = new Homapage_Page();
     FirstElementPage firstElementPage = new FirstElementPage();
 
-    @Then("the user click on Home menu button")
-    public void the_user_click_on_Home_menu_button() {
-        homapagePage.homeBtn_loc.click();
-    }
+    BasketPage basketPage = new BasketPage();
 
-    @And("Test whether the Home page has {int} Sliders only")
-    public void testWhetherTheHomePageHasSlidersOnly(int slider) {
-        homapagePage.slider(slider);
+    WebDriver driver;
 
-    }
-
-    @Then("The Home page must contains only {int} sliders")
-    public void theHomePageMustContainsOnlySliders(int slider) {
-        homapagePage.sliderSize_Mtd(slider);
-
-    }
-
-    @Then("Verify The Home page must contains only {int} Arrivals")
-    public void verify_The_Home_page_must_contains_only_Arrivals(int arrival) {
-        homapagePage.arrivalsSize_Mtd(arrival);
-    }
-
-    @Then("Now click the image in the Arrivals")
-    public void now_click_the_image_in_the_Arrivals() {
-        homapagePage.firstElementArrival_loc.click();
-
-    }
-
-    @Then("Test whether it is navigating to next page where the user can add that book into his basket.")
-    public void test_whether_it_is_navigating_to_next_page_where_the_user_can_add_that_book_into_his_basket() throws InterruptedException {
-
-
-        assertTrue(firstElementPage.addBasket_btn_loc.isDisplayed());
-        firstElementPage.addBasket_btn_loc.click();
-        BrowserUtils.scrollToElement(firstElementPage.description_loc);
-        Thread.sleep(2000);
-
-
-    }
-
-    @Then("Click on Description tab for the book you clicked on.")
-    public void click_on_Description_tab_for_the_book_you_clicked_on() {
-        firstElementPage.description_loc.click();
-
-
-    }
-
-    @Then("There should be a description regarding that book the user clicked on")
-    public void there_should_be_a_description_regarding_that_book_the_user_clicked_on() {
-        assertTrue(firstElementPage.productDescription_loc.isDisplayed());
-
-    }
-
-    @Then("Now click on Reviews tab for the book you clicked on.")
-    public void now_click_on_Reviews_tab_for_the_book_you_clicked_on() {
-        firstElementPage.reviewsBtn_loc.click();
-
-    }
-
-    @Then("There should be a Reviews regarding that book the user clicked on")
-    public void there_should_be_a_Reviews_regarding_that_book_the_user_clicked_on() {
-
-        assertTrue(firstElementPage.regardingReviews_loc.isDisplayed());
-    }
 
     @Then("Click on the Add To Basket button which adds that book to your basket")
     public void click_on_the_Add_To_Basket_button_which_adds_that_book_to_your_basket() {
+        String actualResult = firstElementPage.itemAmountBtn_loc.getText();
+        String expectedResult = "₹500.00";
+        assertEquals(expectedResult, actualResult);
 
     }
 
     @Then("User can view that Book in the Menu item with price.")
-    public void user_can_view_that_Book_in_the_Menu_item_with_price() {
+    public void user_can_view_that_Book_in_the_Menu_item_with_price() throws InterruptedException {
 
+        BrowserUtils.scrollToElement(basketPage.body_loc);
+        basketPage.viewBasket_loc.click();
+        Thread.sleep(3000);
+
+        assertTrue(basketPage.product_SeleniumBook_loc.isDisplayed());
+
+//        basketPage.itemAndPriceVisibility("product-name");
+//        basketPage.itemAndPriceVisibility("product-price");
+////        assertTrue(basketPage.cartitem1_loc.get(2).isDisplayed());
+//        assertTrue(basketPage.cartitem1_loc.get(3).isDisplayed());
     }
 
-    @Then("User can add a book by clicking on Add To Basket button which adds that book in to his Basket")
-    public void user_can_add_a_book_by_clicking_on_Add_To_Basket_button_which_adds_that_book_in_to_his_Basket() {
-
-    }
 
     @Then("Select more books than the books in stock.Ex if the stock has {int} books, try to add {int}.")
-    public void select_more_books_than_the_books_in_stock_Ex_if_the_stock_has_books_try_to_add(Integer int1, Integer int2) {
+    public void select_more_books_than_the_books_in_stock_Ex_if_the_stock_has_books_try_to_add(Integer int1, Integer int2) throws InterruptedException {
+        Driver.get().navigate().back();
+        String stockText = firstElementPage.stock_loc.getText();
+//        firstElementPage.stock_loc.getText() = 9964 in stock buradan rakami almaliyim
+        String actualStockText = stockText.replace(" in stock", "");
+        firstElementPage.productStuck.sendKeys(actualStockText + 1);
+        Thread.sleep(3);
 
     }
 
     @Then("Click the add to basket button")
     public void click_the_add_to_basket_button() {
-
+        firstElementPage.addBasket_btn_loc.click();
     }
 
     @Then("Now it throws an error prompt like you must enter a value between {int} and {int}")
     public void now_it_throws_an_error_prompt_like_you_must_enter_a_value_between_and(Integer int1, Integer int2) {
 
+        assertTrue(Driver.get().findElement(By.xpath("//input[@title='Qty']")).isDisplayed());
+        System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
     }
 
     @Then("Now click on Item link which navigates to proceed to check out page.")
     public void now_click_on_Item_link_which_navigates_to_proceed_to_check_out_page() {
+//        basketPage.itemTableClick("product-name",1);
+//        basketPage.product_SeleniumBook_loc.click();
+        basketPage.product_SeleniumBook_loc.click();
+        firstElementPage.itemAmountBtn_loc.click();
 
     }
+
 
     @Then("User can click on the Item link in menu item after adding the book in to the basket which leads to the check out page")
     public void user_can_click_on_the_Item_link_in_menu_item_after_adding_the_book_in_to_the_basket_which_leads_to_the_check_out_page() {
@@ -121,26 +91,55 @@ public class HomePage_StepDef {
     @Then("Enter the Coupon code as ‘krishnasakinala’ to get 50rps off on the total.")
     public void enter_the_Coupon_code_as_krishnasakinala_to_get_50rps_off_on_the_total() {
 
+
+    }
+
+    @And("Enter the Coupon code as {string} to get {int}rps off on the total.")
+    public void enterTheCouponCodeAsToGetRpsOffOnTheTotal(String coupenCode, int rps) throws InterruptedException {
+        basketPage.coupon_code_loc.sendKeys(coupenCode);
+        Thread.sleep(2000);
+        basketPage.apply_Coupon_loc.click();
+        Thread.sleep(2000);
     }
 
     @Then("User can able to apply coupon by entering ‘krishnasakinala’ in the coupon textbox which give 50rps off on the total price")
     public void user_can_able_to_apply_coupon_by_entering_krishnasakinala_in_the_coupon_textbox_which_give_50rps_off_on_the_total_price() {
+
+        String actualText = basketPage.shopTable_list_loc.get(1).getText();
+        String expectedText = "-₹50.00, Free shipping coupon [Remove]";
+        System.out.println("actualText = " + actualText);
+        System.out.println("expectedText = " + expectedText);
+        assertEquals(expectedText, actualText);
+
 
     }
 
     @Then("User can able to apply coupon by entering ‘krishnasakinala’ in the coupon textbox which give 50rps off on the total price because the coupon is applicable for the book price > {int} rps")
     public void user_can_able_to_apply_coupon_by_entering_krishnasakinala_in_the_coupon_textbox_which_give_50rps_off_on_the_total_price_because_the_coupon_is_applicable_for_the_book_price_rps(Integer int1) {
 
+        String totalPrice = basketPage.shopTable_list_loc.get(3).getText();
+        System.out.println("totalPrice = " + totalPrice); //totalPrice = ₹459.00
+//String int e cevirmem lazim sonrarakamin büyük oldugunu verify etmem lazim
+
+
     }
 
     @Then("Now click on Remove this icon in Check out page which removes that book from the grid.")
-    public void now_click_on_Remove_this_icon_in_Check_out_page_which_removes_that_book_from_the_grid() {
+    public void now_click_on_Remove_this_icon_in_Check_out_page_which_removes_that_book_from_the_grid() throws InterruptedException {
+        basketPage.remove_loc.click();
+        //        basketPage.remoteItem_loc.click();
+//        basketPage.itemTableClick("product-remove");
+        Thread.sleep(3000);
 
     }
 
     @Then("User has the feasibility to remove the book at the time of check out also")
     public void user_has_the_feasibility_to_remove_the_book_at_the_time_of_check_out_also() {
-
+        String actualDeleteMessage = basketPage.deleteMsg_loc.getText();
+        String expectedDeleteMessage = "Selenium Ruby removed. Undo?";
+        System.out.println("actualDeleteMessage = " + actualDeleteMessage);
+        System.out.println("expectedDeleteMessage = " + expectedDeleteMessage);
+        assertEquals(expectedDeleteMessage, actualDeleteMessage);
     }
 
     @Then("Click on textbox value under quantity in Check out page to add or subtract books.")
