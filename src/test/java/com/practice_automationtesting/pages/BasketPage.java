@@ -56,11 +56,20 @@ public class BasketPage extends BasePage{
     @FindBy(xpath = "//input[@name='apply_coupon']")
     public WebElement apply_Coupon_loc;
 
+    @FindBy(xpath = "//div[text()='Coupon code applied successfully.']")
+    public WebElement apply_Coupon_Msg_loc;
+
+    @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
+    public WebElement error_Coupon_Msg_loc;
+
     @FindBy(xpath = "//table[@class='shop_table shop_table_responsive']//tr//td")
     public List<WebElement>shopTable_list_loc;
 
     @FindBy(xpath = "//div[@class='woocommerce-message']")
     public WebElement deleteMsg_loc;
+
+    @FindBy(xpath = "//p[@class='return-to-shop']//a")
+    public WebElement returnToShop_loc;
 
     public void itemAndPriceVisibility(String name){
 
