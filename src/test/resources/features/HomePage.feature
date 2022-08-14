@@ -1,4 +1,4 @@
-@Test1
+@HomePage
 Feature: Home Page Test 1
 
   Background: the user on the login and on MyAccount Menu

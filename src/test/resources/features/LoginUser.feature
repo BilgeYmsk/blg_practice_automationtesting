@@ -12,7 +12,7 @@ Feature: MY ACCOUNT - Login
     And Click on login button
     Then User must successfully login to the web page
 
-
+@negative
   Scenario Outline: Negative Login Scenario
     And Enter "<username>" in username textbox
     And Enter "<password>" in password textbox

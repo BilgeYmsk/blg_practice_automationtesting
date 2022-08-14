@@ -6,6 +6,7 @@ import com.practice_automationtesting.utilities.BrowserUtils;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,7 +19,6 @@ public class HomePage2_StepDef {
 
     BasketPage basketPage = new BasketPage();
 
-    WebDriver driver;
 
 
     @Then("Click on the Add To Basket button which adds that book to your basket")
@@ -62,11 +62,10 @@ public class HomePage2_StepDef {
     }
 
     @And("Now it throws an error prompt like you must enter a value between one and twenty")
-    public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() {
-
+    public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() throws InterruptedException {
 //        Alert alert=Driver.get().switchTo().alert();
 //        System.out.println("alert.getText() = " + alert.getText());
-        assertTrue(Driver.get().findElement(By.xpath("//input[@title='Qty']")).isDisplayed());
+       assertTrue(Driver.get().findElement(By.xpath("//input[@title='Qty']")).isDisplayed());
         System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
     }
 

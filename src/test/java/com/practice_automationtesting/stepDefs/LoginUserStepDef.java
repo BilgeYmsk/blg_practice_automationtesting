@@ -44,6 +44,7 @@ public class LoginUserStepDef {
     @And("Enter {string} in username textbox")
     public void enterInUsernameTextbox(String email) {
         login.usernameBtn.sendKeys(email);
+//        login.usernameBtn.sendKeys(email);
     }
 
     @And("Enter {string} in password textbox")

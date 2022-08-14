@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue="com/practice_automationtesting/stepDefs",
         dryRun = false,
-        tags = "@Total&SubTotal"
+        tags = "@HomePageAddBasket"
 )
 
 public class CukesRunner {

@@ -1,4 +1,4 @@
-@Test2
+@HomePageAddBasket
 Feature: Home Page Test 2
 
   Background: the user on the login and on MyAccount Menu
@@ -12,7 +12,7 @@ Feature: Home Page Test 2
     Then  Verify that book in to his Basket
     Then  User can view that Book in the Menu item with price.
 
-
+ @Alert
   Scenario:Home Page Arrivals-Images-Add to Basket with more books
     And   Select more books than the books in stock.
     #elect more books than the books in stock.Ex if the stock has 20 books, try to add 21.
@@ -55,7 +55,7 @@ Feature: Home Page Test 2
     Then  User has the feasibility to find the total price of the books at Basket Totals
     #Then  Now user can find total and subtotal values just above the Proceed to Checkout button.
 
-  @Total&SubTotal
+  @Select
   Scenario:Home Page Arrivals-Images-Add to Basket-Items-Check-out-Total&Sub-Total condition
     And   Now click on Item link which navigates to proceed to basket page.
     And   The total always < subtotal because taxes are added in the subtotal
@@ -64,6 +64,7 @@ Feature: Home Page Test 2
     #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out-Payment Gateway
     Then  User can view Billing Details,Order Details,Additional details and Payment gateway details.
     And   Now user can fill his details in billing details form and can opt any payment in the payment gateway like Direct bank transfer,cheque,cash or paypal.
+    ##################Select Country Problem ###############
     Then  User has the feasibility to add coupon in the payment gateway page
     #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out-Payment Gateway-Place order
     And   Now click on Place Order button to complete process
