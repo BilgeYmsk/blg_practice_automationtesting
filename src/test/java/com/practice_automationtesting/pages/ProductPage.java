@@ -3,7 +3,7 @@ package com.practice_automationtesting.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class FirstElementPage extends BasePage{
+public class ProductPage extends BasePage{
 
     @FindBy(xpath = "//button[text()='Add to basket']")
     public WebElement addBasket_btn_loc;
@@ -34,4 +34,7 @@ public class FirstElementPage extends BasePage{
 
     @FindBy(xpath = "//input[@name='add-to-cart']")
     public WebElement hiddenText_loc;
+
+    @FindBy(xpath = "(//p[@class='price']//del//span)[1]")
+    public WebElement oldPrice_Log;
 }
