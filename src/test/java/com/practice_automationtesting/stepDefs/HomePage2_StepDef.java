@@ -1,29 +1,25 @@
 package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.BasketPage;
-import com.practice_automationtesting.pages.FirstElementPage;
+import com.practice_automationtesting.pages.ProductPage;
 import com.practice_automationtesting.utilities.BrowserUtils;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class HomePage2_StepDef {
 
-    FirstElementPage firstElementPage = new FirstElementPage();
+    ProductPage productPage = new ProductPage();
 
     BasketPage basketPage = new BasketPage();
 
 
-
     @Then("Click on the Add To Basket button which adds that book to your basket")
     public void click_on_the_Add_To_Basket_button_which_adds_that_book_to_your_basket() {
-        String actualResult = firstElementPage.itemAmountBtn_loc.getText();
+        String actualResult = productPage.itemAmountBtn_loc.getText();
         String expectedResult = "₹500.00";
         assertEquals(expectedResult, actualResult);
 
@@ -48,27 +44,31 @@ public class HomePage2_StepDef {
     @And("Select more books than the books in stock.")
     public void selectMoreBooksThanTheBooksInStock() throws InterruptedException {
         Driver.get().navigate().back();
-        String stockText = firstElementPage.stock_loc.getText();
+        String stockText = productPage.stock_loc.getText();
 //        firstElementPage.stock_loc.getText() = 9964 in stock buradan rakami almaliyim
         String actualStockText = stockText.replace(" in stock", "");
-        firstElementPage.productStuck.sendKeys(actualStockText + 1);
+        productPage.productStuck.sendKeys(actualStockText + 1);
         Thread.sleep(3);
 
     }
 
     @Then("Click the add to basket button")
     public void click_the_add_to_basket_button() {
-        firstElementPage.addBasket_btn_loc.click();
+        productPage.addBasket_btn_loc.click();
     }
 
     @And("Now it throws an error prompt like you must enter a value between one and twenty")
     public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() throws InterruptedException {
 //        Alert alert=Driver.get().switchTo().alert();
 //        System.out.println("alert.getText() = " + alert.getText());
-       assertTrue(Driver.get().findElement(By.xpath("//input[@title='Qty']")).isDisplayed());
-        System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
+//        Thread.sleep(2000);
+//        WebElement element=Driver.get().findElement(By.xpath("//form[@class='cart']//input[@type='hidden']"));
+//        Thread.sleep(3000);
+//        assertTrue(Driver.get().findElement(By.xpath("/html")).getText().contains("Wert muss kleiner als oder gleich 9960 sein."));
+//        System.out.println("element = " + element.getAttribute(""));
+//        assertTrue(element.isDisplayed());
+//        System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
     }
-
 
 
     @And("Enter the Coupon code as {string} to get {int}rps off on the total.")
@@ -94,14 +94,14 @@ public class HomePage2_StepDef {
     public void verifyToTheTotalPriceBecauseTheCouponIsApplicableForTheBookPriceRps(int rps) {
 
         String price = basketPage.shopTable_list_loc.get(0).getText();
-        String totalPrice=price.replace("₹","");
-        double price_total=Double.parseDouble(totalPrice);
+        String totalPrice = price.replace("₹", "");
+        double price_total = Double.parseDouble(totalPrice);
 //        System.out.println("totalPrice = " + totalPrice); //totalPrice = ₹500.00
-        assertTrue(price_total>rps);
+        assertTrue(price_total > rps);
 
         String actualApply_CouponText = basketPage.apply_Coupon_Msg_loc.getText();
-        String expectedApply_CouponText="Coupon code applied successfully.";
-        assertEquals(expectedApply_CouponText,actualApply_CouponText);
+        String expectedApply_CouponText = "Coupon code applied successfully.";
+        assertEquals(expectedApply_CouponText, actualApply_CouponText);
 
 
     }
@@ -114,16 +114,13 @@ public class HomePage2_StepDef {
     }
 
     @Then("Verify user can remove the book at the time of check out")
-    public void verifyUserCanRemoveTheBookAtTheTimeOfCheckOut(){
+    public void verifyUserCanRemoveTheBookAtTheTimeOfCheckOut() {
         String actualDeleteMessage = basketPage.deleteMsg_loc.getText();
         String expectedDeleteMessage = "Selenium Ruby removed. Undo?";
         System.out.println("actualDeleteMessage = " + actualDeleteMessage);
         System.out.println("expectedDeleteMessage = " + expectedDeleteMessage);
         assertEquals(expectedDeleteMessage, actualDeleteMessage);
     }
-
-
-
 
 
 }

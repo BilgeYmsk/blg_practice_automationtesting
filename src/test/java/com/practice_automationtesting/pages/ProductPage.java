@@ -37,4 +37,7 @@ public class ProductPage extends BasePage{
 
     @FindBy(xpath = "(//p[@class='price']//del//span)[1]")
     public WebElement oldPrice_Log;
+
+    @FindBy(xpath = "(//span[@class='woocommerce-Price-amount amount'])[2]")
+    public WebElement newPrice_loc;
 }

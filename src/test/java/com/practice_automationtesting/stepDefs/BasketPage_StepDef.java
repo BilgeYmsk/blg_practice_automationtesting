@@ -1,7 +1,7 @@
 package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.BasketPage;
-import com.practice_automationtesting.pages.FirstElementPage;
+import com.practice_automationtesting.pages.ProductPage;
 import com.practice_automationtesting.pages.Homapage_Page;
 import com.practice_automationtesting.pages.ShopPage;
 import io.cucumber.java.en.And;
@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class BasketPage_StepDef {
 
-    FirstElementPage firstElementPage = new FirstElementPage();
+    ProductPage productPage = new ProductPage();
 
     BasketPage basketPage = new BasketPage();
 
@@ -22,7 +22,7 @@ public class BasketPage_StepDef {
     @And("Now click on Item link which navigates to proceed to basket page.")
     public void nowClickOnItemLinkWhichNavigatesToProceedToBasketPage() {
         basketPage.product_SeleniumBook_loc.click();
-        firstElementPage.itemAmountBtn_loc.click();
+        productPage.itemAmountBtn_loc.click();
     }
 
     @Then("Verify Update Basket button UnClickable mode")
@@ -109,8 +109,8 @@ public class BasketPage_StepDef {
 
         homapagePage.homeBtn_loc.click();
         homapagePage.secondElementArrival_loc.click();
-        firstElementPage.addBasket_btn_loc.click();
-        firstElementPage.itemAmountBtn_loc.click();
+        productPage.addBasket_btn_loc.click();
+        productPage.itemAmountBtn_loc.click();
 
         basketPage.coupon_code_loc.sendKeys(coupon);
         Thread.sleep(2000);

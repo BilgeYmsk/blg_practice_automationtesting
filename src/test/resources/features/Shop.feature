@@ -1,3 +1,4 @@
+
 Feature: Shop-Filter By Price Functionality
 
   Background:the user on the login and on MyAccount Menu
@@ -10,7 +11,7 @@ Feature: Shop-Filter By Price Functionality
     And Now click on Filter button
     Then User can view books only between 200 to 450 rps price
 
-  @Shop
+
   Scenario:Shop-Product Categories Funktionality
     And   Click on any of the product links available in the product category
     Then  The user should be able to see only that particular product
@@ -32,6 +33,7 @@ Feature: Shop-Filter By Price Functionality
     And  Read More option indicates the Out Of Stock.
     Then User cannot add the product which has read more option as it was out of stock.
 
+  @Shop
   Scenario: Shop Sale Functionality
     And  Click on Sale written product in home page
     Then User can view the actual price with old price striken for the sale written products

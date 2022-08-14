@@ -40,17 +40,21 @@ public class ShopPage extends BasePage {
     @FindBy(xpath = "//span[@class='onsale'][1]")
     public WebElement onsole_firstProduct_loc;
 
+    @FindBy(xpath = "(//span[@class='price']//del//span)[1]")
+    public WebElement oldPrice_firstProduct_loc;
 
+    @FindBy(xpath = "(//span[@class='price']//ins//span)[1]")
+    public WebElement newPrice_firstProduct_loc;
 
     public void productCategories_Mthd(String name) {
-        WebElement categorie= Driver.get().findElement(By.xpath("//a[text()='"+name+"']"));
+        WebElement categorie = Driver.get().findElement(By.xpath("//a[text()='" + name + "']"));
         categorie.click();
     }
 
-    public void selectSorting_Mthd(){
-        WebElement sorting=Driver.get().findElement(By.xpath("//select[@class='orderby']"));
+    public void selectSorting_Mthd() {
+        WebElement sorting = Driver.get().findElement(By.xpath("//select[@class='orderby']"));
 
-        Select orderBy=new Select(sorting);
+        Select orderBy = new Select(sorting);
 
         String expectedOption = "Default sorting";
         String actualOption = orderBy.getFirstSelectedOption().getText();
