@@ -1,3 +1,4 @@
+@Shop
 Feature: Shop-Filter By Price Functionality
 
   Background:the user on the login and on MyAccount Menu
@@ -38,7 +39,7 @@ Feature: Shop-Filter By Price Functionality
     And  Click on Sale written product in home page
     Then User can view the actual price with old price striken for the sale written products
 
-  @Shop
+
   Scenario: Shop Add to Basket View Basket Functionality
     And   Click on the Add To Basket button of the 4 book
     And   Click on View Basket link which navigates to proceed to check out page.

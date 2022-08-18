@@ -5,9 +5,8 @@ Feature: MY ACCOUNT - REGISTRATION
     Given the user is on the login page
     Then  the user click on My Account Menu
 
-
+@rgs
   Scenario: Registration-Sign-in
-
     And   the user enter registered Email Address in Email-Address textbox
     And   Enter your own password in password textbox
     And   Click on Register button
