@@ -19,15 +19,15 @@ Feature: Shop-Filter By Price Functionality
   @Shop2
   Scenario Outline:Shop-Default-Sorting Funktionality
     And   Click on Sort and verify the value "Default sorting"
-    And   Click on Sort "<orderby>"  item in Default sorting dropdown
-    Then  User should be able to view "<order>" only
+    Then   Click on Sort "<orderby>"  item and verify User should be able to view "<order>" only
+    #Then  User should be able to view "<order>" only
     Examples:
-      | orderby                    | order                      |
-      | Sort by popularity         | Sort by popularity         |
-      | Sort by average rating     | Sort by average rating     |
-      | Sort by newness            | Sort by newness            |
-      | Sort by price: low to high | Sort by price: low to high |
-      | Sort by price: high to low | Sort by price: high to low |
+      | orderby                    | order      |
+      | Sort by popularity         | popularity |
+      | Sort by average rating     | rating     |
+      | Sort by newness            | date       |
+      | Sort by price: low to high | price      |
+      | Sort by price: high to low | price-desc |
 
   Scenario: Shop Read More Functionality
     And  Click on read more button in home page

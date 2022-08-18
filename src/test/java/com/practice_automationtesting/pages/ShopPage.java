@@ -1,8 +1,8 @@
 package com.practice_automationtesting.pages;
 
 import com.practice_automationtesting.utilities.Driver;
+import static org.junit.Assert.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -72,39 +72,52 @@ public class ShopPage extends BasePage {
 
     }
 
-    public void selectSorting_OrderBy(String order) {
+    public void selectSorting_OrderBy(String orderBy,String order) {
         WebElement sorting = Driver.get().findElement(By.xpath("//select[@class='orderby']"));
 
-        Select orderBy = new Select(sorting);
+        Select select = new Select(sorting);
 
-        switch (order){
+        switch (orderBy){
             case "Sort by popularity":
-                orderBy.selectByValue("popularity");
+                select.selectByValue(order);
+                assertTrue(Driver.get().getCurrentUrl().contains("orderby=popularity"));
                 break;
             case "Sort by average rating":
-                orderBy.selectByValue("rating");
+                select.selectByValue(order);
+                assertTrue(Driver.get().getCurrentUrl().contains("orderby=rating"));
                 break;
             case "Sort by newness":
-                orderBy.selectByValue("date");
+                select.selectByValue(order);
+                assertTrue(Driver.get().getCurrentUrl().contains("orderby=date"));
                 break;
             case "Sort by price: low to high":
-                orderBy.selectByValue("price");
+                select.selectByValue(order);
+                assertTrue(Driver.get().getCurrentUrl().contains("orderby=price"));
                 break;
             case "Sort by price: high to low":
-                orderBy.selectByValue("price-desc");
+                select.selectByValue(order);
+                assertTrue(Driver.get().getCurrentUrl().contains("orderby=price-desc"));
                 break;
             default:
                 System.out.println("Wrong OrderBy entered!!!");
         }
 
 
-//        List<WebElement> orderList = orderBy.getOptions();
+//        List<WebElement> orderList = select.getOptions();
 //
 //        for (WebElement option : orderList) {
 //            if(option.getText().equalsIgnoreCase(order)){
 //                option.click();
 //            }
 //        }
+
+    }
+    public void getUrl(){
+
+        String currentUrl = Driver.get().getCurrentUrl();
+        System.out.println("currentUrl = " + currentUrl);
+        assertTrue(Driver.get().getCurrentUrl().contains("orderby=popularity"));
+
 
     }
 }
