@@ -36,7 +36,7 @@ Feature: Home Page Test 2
     And   Now click on Item link which navigates to proceed to basket page.
     And   Now click on Remove this icon in Check out page
     Then  Verify user can remove the book at the time of check out
-    And  Click on return to shop button
+    And   Click on return to shop button
     Then  Verify  user can not able to apply coupon by entering "krishnasakinala" which is applicable for the book price > 450 rps
 
   @Update

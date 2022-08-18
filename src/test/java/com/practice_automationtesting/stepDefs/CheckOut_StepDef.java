@@ -34,12 +34,17 @@ public class CheckOut_StepDef extends BasePage {
     }
 
     @Then("User has the feasibility to add coupon in the payment gateway page")
-    public void userHasTheFeasibilityToAddCouponInThePaymentGatewayPage() {
+    public void userHasTheFeasibilityToAddCouponInThePaymentGatewayPage() throws InterruptedException {
         String actualCouponText = checkOutPage.haveACouponText_loc.getText();
-        String expectedCouponText="Have a coupon? Click here to enter your code";
+        String expectedCouponText = "Have a coupon? Click here to enter your code";
 //        System.out.println("actualCouponText = " + actualCouponText);
 //        System.out.println("expectedCouponText = " + expectedCouponText);
-        assertEquals(expectedCouponText,actualCouponText);
+        assertEquals(expectedCouponText, actualCouponText);
+
+        checkOutPage.clickEnterBtn_loc.click();
+        Thread.sleep(1000);
+        checkOutPage.couponBox_loc_ChckPg_loc.sendKeys("krishnasakinala");
+        checkOutPage.applyCopuon_ChckPg_loc.click();
 
     }
 

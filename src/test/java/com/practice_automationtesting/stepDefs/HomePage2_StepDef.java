@@ -21,14 +21,6 @@ public class HomePage2_StepDef {
     BasketPage basketPage = new BasketPage();
 
 
-    @Then("Click on the Add To Basket button which adds that book to your basket")
-    public void click_on_the_Add_To_Basket_button_which_adds_that_book_to_your_basket() {
-        String actualResult = productPage.itemAmountBtn_loc.getText();
-        String expectedResult = "₹500.00";
-        assertEquals(expectedResult, actualResult);
-
-    }
-
     @Then("User can view that Book in the Menu item with price.")
     public void user_can_view_that_Book_in_the_Menu_item_with_price() throws InterruptedException {
 
