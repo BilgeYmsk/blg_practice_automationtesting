@@ -12,6 +12,5 @@ Test Framework: Cucumber BDD (with JUnit Assertions)
 
 WebSite: https://practice.automationtesting.in
 
-System Requirements: Java 17
 
 

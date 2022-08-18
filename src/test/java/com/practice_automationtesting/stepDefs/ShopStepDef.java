@@ -72,18 +72,25 @@ public class ShopStepDef {
 
     @Then("Click on Sort and verify the value {string}")
     public void click_on_Sort_and_verify_the_value(String string) {
+
         shopPage.selectOrderBy_Btn_loc.click();
+
+        shopPage.selectSorting_Mthd();
 
     }
 
     @Then("Click on Sort {string}  item in Default sorting dropdown")
-    public void click_on_Sort_item_in_Default_sorting_dropdown(String string) {
+    public void click_on_Sort_item_in_Default_sorting_dropdown(String orderBy) throws InterruptedException {
+
+        shopPage.selectSorting_OrderBy(orderBy);
+
+        Thread.sleep(3000);
+
 
     }
 
-    @Then("User should be able to view the popular products only")
-    public void user_should_be_able_to_view_the_popular_products_only() {
-
+    @Then("User should be able to view {string} only")
+    public void userShouldBeAbleToViewOnly(String order) {
     }
 
 
@@ -137,6 +144,5 @@ public class ShopStepDef {
     public void user_can_find_total_and_subtotal_values_just_above_the_Proceed_to_Checkout_button() {
 
     }
-
 
 }

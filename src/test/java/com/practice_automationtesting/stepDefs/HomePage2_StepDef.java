@@ -6,6 +6,10 @@ import com.practice_automationtesting.utilities.BrowserUtils;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.browser.model.WindowState;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -44,11 +48,18 @@ public class HomePage2_StepDef {
     @And("Select more books than the books in stock.")
     public void selectMoreBooksThanTheBooksInStock() throws InterruptedException {
         Driver.get().navigate().back();
+
+        //1.way für maxStuck -->dynamic
         String stockText = productPage.stock_loc.getText();
-//        firstElementPage.stock_loc.getText() = 9964 in stock buradan rakami almaliyim
+//        firstElementPage.stock_loc.getText() = '9964 in stock' -->9964
         String actualStockText = stockText.replace(" in stock", "");
+
+        // 2.way  für maxStuck -->dynamic
+//        String max = productPage.maxStuck_loc.getAttribute("max");
+//        System.out.println("max = " + max);
+
         productPage.productStuck.sendKeys(actualStockText + 1);
-        Thread.sleep(3);
+//        Thread.sleep(3);
 
     }
 
@@ -62,9 +73,10 @@ public class HomePage2_StepDef {
 //        Alert alert=Driver.get().switchTo().alert();
 //        System.out.println("alert.getText() = " + alert.getText());
 //        Thread.sleep(2000);
-//        WebElement element=Driver.get().findElement(By.xpath("//form[@class='cart']//input[@type='hidden']"));
-//        Thread.sleep(3000);
-//        assertTrue(Driver.get().findElement(By.xpath("/html")).getText().contains("Wert muss kleiner als oder gleich 9960 sein."));
+//        WebElement element = Driver.get().findElement(By.xpath("(//input[@type='hidden'])[1]"));
+//        System.out.println("element.getText() = " + element.getText());
+////        Thread.sleep(3000);
+//       assertTrue(Driver.get().findElement(By.xpath("/html")).getText().contains("Wert muss kleiner als oder gleich 9960 sein."));
 //        System.out.println("element = " + element.getAttribute(""));
 //        assertTrue(element.isDisplayed());
 //        System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
