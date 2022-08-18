@@ -1,4 +1,3 @@
-
 Feature: Shop-Filter By Price Functionality
 
   Background:the user on the login and on MyAccount Menu
@@ -14,19 +13,21 @@ Feature: Shop-Filter By Price Functionality
 
   Scenario:Shop-Product Categories Funktionality
     And   Click on any of the product links available in the product category
+    #Home / JavaScript
     Then  The user should be able to see only that particular product
 
+  @Shop2
   Scenario Outline:Shop-Default-Sorting Funktionality
     And   Click on Sort and verify the value "Default sorting"
     And   Click on Sort "<orderby>"  item in Default sorting dropdown
-    Then  User should be able to view the popular products only
+    Then  User should be able to view "<order>" only
     Examples:
-      | orderby                    |
-      | Sort by popularity         |
-      | Sort by average rating     |
-      | Sort by newness            |
-      | Sort by price: low to high |
-      | Sort by price: high to low |
+      | orderby                    | order                      |
+      | Sort by popularity         | Sort by popularity         |
+      | Sort by average rating     | Sort by average rating     |
+      | Sort by newness            | Sort by newness            |
+      | Sort by price: low to high | Sort by price: low to high |
+      | Sort by price: high to low | Sort by price: high to low |
 
   Scenario: Shop Read More Functionality
     And  Click on read more button in home page

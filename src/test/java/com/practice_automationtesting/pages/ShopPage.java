@@ -52,20 +52,59 @@ public class ShopPage extends BasePage {
     }
 
     public void selectSorting_Mthd() {
+
         WebElement sorting = Driver.get().findElement(By.xpath("//select[@class='orderby']"));
 
         Select orderBy = new Select(sorting);
 
         String expectedOption = "Default sorting";
+        System.out.println("expectedOption = " + expectedOption);
         String actualOption = orderBy.getFirstSelectedOption().getText();
         System.out.println("actualOption = " + actualOption);
-        assertEquals(actualOption, expectedOption, "verify that default Text is Default sorting");
+
+        assertEquals("verify that default Text is Default sorting", actualOption, expectedOption);
 
 //        orderBy.selectByVisibleText("Sort by popularity");
 //
 //        expectedOption = "Sort by popularity";
 //        actualOption = orderBy.getFirstSelectedOption().getText();
-//        assertEquals(actualOption, expectedOption, "verify that default country is Sort by popularity");
+//        assertEquals("verify that default country is Sort by popularity",actualOption, expectedOption );
+
+    }
+
+    public void selectSorting_OrderBy(String order) {
+        WebElement sorting = Driver.get().findElement(By.xpath("//select[@class='orderby']"));
+
+        Select orderBy = new Select(sorting);
+
+        switch (order){
+            case "Sort by popularity":
+                orderBy.selectByValue("popularity");
+                break;
+            case "Sort by average rating":
+                orderBy.selectByValue("rating");
+                break;
+            case "Sort by newness":
+                orderBy.selectByValue("date");
+                break;
+            case "Sort by price: low to high":
+                orderBy.selectByValue("price");
+                break;
+            case "Sort by price: high to low":
+                orderBy.selectByValue("price-desc");
+                break;
+            default:
+                System.out.println("Wrong OrderBy entered!!!");
+        }
+
+
+//        List<WebElement> orderList = orderBy.getOptions();
+//
+//        for (WebElement option : orderList) {
+//            if(option.getText().equalsIgnoreCase(order)){
+//                option.click();
+//            }
+//        }
 
     }
 }

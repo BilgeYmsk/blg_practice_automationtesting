@@ -40,4 +40,7 @@ public class ProductPage extends BasePage{
 
     @FindBy(xpath = "(//span[@class='woocommerce-Price-amount amount'])[2]")
     public WebElement newPrice_loc;
+
+    @FindBy(xpath = "//div[@class='quantity']//input")
+    public WebElement maxStuck_loc;
 }
