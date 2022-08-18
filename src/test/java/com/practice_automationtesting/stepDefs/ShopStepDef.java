@@ -5,14 +5,16 @@ import com.practice_automationtesting.pages.ShopPage;
 import com.practice_automationtesting.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+
 import static org.junit.Assert.*;
+
 import org.openqa.selenium.Keys;
 
 
 public class ShopStepDef {
 
     ShopPage shopPage = new ShopPage();
-    ProductPage productPage=new ProductPage();
+    ProductPage productPage = new ProductPage();
 
     @Then("the user click on Shop Menu")
     public void theUserClickOnShopMenu() {
@@ -88,7 +90,7 @@ public class ShopStepDef {
 
     @Then("Click on Sort {string}  item and verify User should be able to view {string} only")
     public void clickOnSortItemAndVerifyUserShouldBeAbleToViewOnly(String orderBy, String order) throws InterruptedException {
-        shopPage.selectSorting_OrderBy(orderBy,order);
+        shopPage.selectSorting_OrderBy(orderBy, order);
         Thread.sleep(3000);
 
     }
@@ -126,26 +128,29 @@ public class ShopStepDef {
 //        System.out.println("newPrice = " + newPrice);
         String oldPrice = productPage.oldPrice_Log.getText();
         String newPrice = productPage.newPrice_loc.getText();
-        System.out.println("oldPrice = " + oldPrice);
-        System.out.println("newPrice = " + newPrice);
-       assertTrue(productPage.oldPrice_Log.isDisplayed());
-       assertTrue(productPage.newPrice_loc.isDisplayed());
+//        System.out.println("oldPrice = " + oldPrice);
+//        System.out.println("newPrice = " + newPrice);
+        assertTrue(productPage.oldPrice_Log.isDisplayed());
+        assertTrue(productPage.newPrice_loc.isDisplayed());
 
 
     }
 
-    @Then("User can view that Book in the Menu item with price .")
-    public void user_can_view_that_Book_in_the_Menu_item_with_price() {
+    @And("Click on the Add To Basket button of the {int} book")
+    public void clickOnTheAddToBasketButtonOfTheBook(int product) {
+
+        shopPage.addBasketWithIndex(product);
 
     }
 
     @Then("Click on View Basket link which navigates to proceed to check out page.")
     public void click_on_View_Basket_link_which_navigates_to_proceed_to_check_out_page() {
-
+        shopPage.viewBasket_loc.click();
     }
 
     @Then("User can find total and subtotal values just above the Proceed to Checkout button.")
     public void user_can_find_total_and_subtotal_values_just_above_the_Proceed_to_Checkout_button() {
+        assertFalse(shopPage.basketTotal_list_loc.isEmpty());
 
     }
 

@@ -40,11 +40,18 @@ public class ShopPage extends BasePage {
     @FindBy(xpath = "//span[@class='onsale'][1]")
     public WebElement onsole_firstProduct_loc;
 
+    @FindBy(xpath = "//a[@title='View Basket']")
+    public WebElement viewBasket_loc;
+
+    @FindBy(xpath = "//table[@class='shop_table shop_table_responsive']//tbody//tr//td")
+    public List<WebElement>basketTotal_list_loc;
+
     @FindBy(xpath = "(//span[@class='price']//del//span)[1]")
     public WebElement oldPrice_firstProduct_loc;
 
     @FindBy(xpath = "(//span[@class='price']//ins//span)[1]")
     public WebElement newPrice_firstProduct_loc;
+
 
     public void productCategories_Mthd(String name) {
         WebElement categorie = Driver.get().findElement(By.xpath("//a[text()='" + name + "']"));
@@ -112,12 +119,18 @@ public class ShopPage extends BasePage {
 //        }
 
     }
+
+    public void addBasketWithIndex(int product){
+
+        WebElement product_Add=Driver.get().findElement(By.xpath("//li["+product+"]//a[2]"));
+        product_Add.click();
+    }
+
     public void getUrl(){
 
         String currentUrl = Driver.get().getCurrentUrl();
         System.out.println("currentUrl = " + currentUrl);
         assertTrue(Driver.get().getCurrentUrl().contains("orderby=popularity"));
-
 
     }
 }
