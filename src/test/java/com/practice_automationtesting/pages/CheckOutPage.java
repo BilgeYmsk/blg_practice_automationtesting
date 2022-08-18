@@ -40,14 +40,14 @@ public class CheckOutPage extends BasePage {
     @FindBy(xpath = "//div[@class='woocommerce-info'][2]")
     public WebElement haveACouponText_loc;
 
-    @FindBy(xpath = "//div[@class='woocommerce-info'][2]//a")
-    public WebElement addCouponBtn_loc;
-
     @FindBy(id = "coupon_code")
-    public WebElement couponBox_loc;
+    public WebElement couponBox_loc_ChckPg_loc;
 
     @FindBy(xpath = "//input[@name='apply_coupon']")
     public WebElement applyCopuon_ChckPg_loc;
+
+    @FindBy(xpath = "//a[text()='Click here to enter your code']")
+    public WebElement clickEnterBtn_loc;
 
 //    @FindBy(xpath = "//div[@class='woocommerce-billing-fields']//p")
 //    public List<WebElement> billingsDetail_List;
