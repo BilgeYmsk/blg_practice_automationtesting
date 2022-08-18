@@ -82,10 +82,14 @@ public class ShopStepDef {
     @Then("Click on Sort {string}  item in Default sorting dropdown")
     public void click_on_Sort_item_in_Default_sorting_dropdown(String orderBy) throws InterruptedException {
 
-        shopPage.selectSorting_OrderBy(orderBy);
+//        shopPage.selectSorting_OrderBy(orderBy);
+//        Thread.sleep(3000);
+    }
 
+    @Then("Click on Sort {string}  item and verify User should be able to view {string} only")
+    public void clickOnSortItemAndVerifyUserShouldBeAbleToViewOnly(String orderBy, String order) throws InterruptedException {
+        shopPage.selectSorting_OrderBy(orderBy,order);
         Thread.sleep(3000);
-
 
     }
 
@@ -144,5 +148,6 @@ public class ShopStepDef {
     public void user_can_find_total_and_subtotal_values_just_above_the_Proceed_to_Checkout_button() {
 
     }
+
 
 }
