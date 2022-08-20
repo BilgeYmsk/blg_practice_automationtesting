@@ -18,7 +18,7 @@ Feature: Home Page Test 2
     #elect more books than the books in stock.Ex if the stock has 20 books, try to add 21.
     And   Click the add to basket button
     And   Now it throws an error prompt like you must enter a value between one and twenty
-  #############burada verify edemiyorum alert calismiyor###########
+  #############burada verify edemiyorum alert calismiyor###########  noch nicht fertig ##############
 
   @rps
   Scenario:Home Page Arrivals-Images-Add to Basket-Items/Coupon/value>450

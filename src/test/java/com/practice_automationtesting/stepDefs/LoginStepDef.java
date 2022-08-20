@@ -7,6 +7,8 @@ import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertEquals;
 
@@ -56,7 +58,8 @@ public class LoginStepDef {
     @Then("User will be registered successfully")
     public void user_will_be_registered_successfully() {
 
-        String actualText = myAccountPage.nameReader(ConfigurationReader.get("name"));
+        WebElement name=Driver.get().findElement(By.xpath("//div//p//strong"));
+        String actualText = name.getText();
         String expectedText = ConfigurationReader.get("name");
         assertEquals(expectedText, actualText);
 
@@ -64,9 +67,6 @@ public class LoginStepDef {
 
     @And("User will be navigated to the Home page")
     public void userWillBeNavigatedToTheHomePage() {myAccountPage.websiteIcon.click();}
-
-    //    *********Empty Email ********
-
 
     @Then("Registration should fail with a warning message {string}")
     public void registration_should_fail_with_a_warning_message(String expectedTextError) {
