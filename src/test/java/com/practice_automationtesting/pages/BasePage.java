@@ -25,9 +25,8 @@ public abstract class BasePage {
 
 
     public void navigateToMenu(String menuName) {
-
+        // Shop My Account Test Cases AT Site Demo Site
         WebElement menu =   Driver.get().findElement(By.xpath("//a[text()='"+menuName+"']"));
-
         menu.click();
     }
 

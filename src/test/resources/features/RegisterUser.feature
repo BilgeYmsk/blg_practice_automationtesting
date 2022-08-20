@@ -20,7 +20,7 @@ Feature: MY ACCOUNT - REGISTRATION
     And Click on Register button
     And Registration should fail with a warning message " Please provide a valid email address."
 
-
+  @registeren
   Scenario Outline: All Registration-Sign-in
     And   the user enter registered "<email>" in Email textbox
     And   Enter your  "<password>" in password textbox

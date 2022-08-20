@@ -35,7 +35,6 @@ public class MyAccount_RegistrationPage extends BasePage {
         WebElement menu = Driver.get().findElement(By.xpath("//input[@name='" + menuName + "']"));
         menu.click();
 
-//        WebElement name=Driver.get().findElement(By.xpath("//div[@class='woocommerce-MyAccount-content']//p//strong"));
 
 
     }

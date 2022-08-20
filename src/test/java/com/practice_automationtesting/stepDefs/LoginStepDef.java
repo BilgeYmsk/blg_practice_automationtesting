@@ -60,7 +60,6 @@ public class LoginStepDef {
 
         WebElement name=Driver.get().findElement(By.xpath("//div//p//strong"));
         String actualText = name.getText();
-//        System.out.println("actualText = " + actualText);
         String expectedText = ConfigurationReader.get("name");
         assertEquals(expectedText, actualText);
 
@@ -68,9 +67,6 @@ public class LoginStepDef {
 
     @And("User will be navigated to the Home page")
     public void userWillBeNavigatedToTheHomePage() {myAccountPage.websiteIcon.click();}
-
-    //    *********Empty Email ********
-
 
     @Then("Registration should fail with a warning message {string}")
     public void registration_should_fail_with_a_warning_message(String expectedTextError) {

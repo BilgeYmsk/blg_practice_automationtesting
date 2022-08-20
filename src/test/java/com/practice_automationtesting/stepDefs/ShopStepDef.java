@@ -95,25 +95,18 @@ public class ShopStepDef {
 
     }
 
-    @Then("User should be able to view {string} only")
-    public void userShouldBeAbleToViewOnly(String order) {
-    }
-
-
+/*
+    // the three method für -->#Scenario: Shop Read More Functionality
     @Then("Click on read more button in home page")
-    public void click_on_read_more_button_in_home_page() {
-
-    }
+    public void click_on_read_more_button_in_home_page() { }
 
     @Then("Read More option indicates the Out Of Stock.")
-    public void read_More_option_indicates_the_Out_Of_Stock() {
-
-    }
+    public void read_More_option_indicates_the_Out_Of_Stock() {}
 
     @Then("User cannot add the product which has read more option as it was out of stock.")
-    public void user_cannot_add_the_product_which_has_read_more_option_as_it_was_out_of_stock() {
+    public void user_cannot_add_the_product_which_has_read_more_option_as_it_was_out_of_stock() {}
 
-    }
+ */
 
     @Then("Click on Sale written product in home page")
     public void click_on_Sale_written_product_in_home_page() {
