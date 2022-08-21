@@ -47,10 +47,13 @@ public class HomePage2_StepDef {
         String actualStockText = stockText.replace(" in stock", "");
 
         // 2.way  für maxStuck -->dynamic
-//        String max = productPage.maxStuck_loc.getAttribute("max");
-//        System.out.println("max = " + max);
+        String max = productPage.maxStuck_loc.getAttribute("max");
+        System.out.println("max = " + max);
+        System.out.println("actualStockText = " + actualStockText);
 
-        productPage.productStuck.sendKeys(actualStockText + 1);
+        productPage.productStuck.clear();
+        Thread.sleep(3000);
+        productPage.productStuck.sendKeys(actualStockText);
 //        Thread.sleep(3);
 
     }
@@ -62,6 +65,18 @@ public class HomePage2_StepDef {
 
     @And("Now it throws an error prompt like you must enter a value between one and twenty")
     public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() throws InterruptedException {
+        // 2.way  für maxStuck -->dynamic
+        String max = productPage.maxStuck_loc.getAttribute("max");
+        String actualText = productPage.stockText_loc.getText();
+        System.out.println("actualText = " + actualText);
+
+//        String expectedText = "VIEW BASKET"+
+//        "You cannot add that amount to the cart — we have "+max+" in stock and you already have 1 in your cart.";
+//        String expectedText = "";
+//        assertEquals(expectedText, actualText);
+
+        assertTrue(actualText.contains("You cannot add that amount to the cart — we have"));
+
 //        Alert alert=Driver.get().switchTo().alert();
 //        System.out.println("alert.getText() = " + alert.getText());
 //        Thread.sleep(2000);

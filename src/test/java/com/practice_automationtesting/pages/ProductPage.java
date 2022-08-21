@@ -32,8 +32,8 @@ public class ProductPage extends BasePage{
     @FindBy(xpath = "//div//p[@class='stock in-stock']")
     public WebElement stock_loc;
 
-    @FindBy(xpath = "//input[@name='add-to-cart']")
-    public WebElement hiddenText_loc;
+    @FindBy(xpath = "//li[contains(text(),'You cannot add that amount to the cart — we have 9')]")
+    public WebElement stockText_loc;
 
     @FindBy(xpath = "(//p[@class='price']//del//span)[1]")
     public WebElement oldPrice_Log;
