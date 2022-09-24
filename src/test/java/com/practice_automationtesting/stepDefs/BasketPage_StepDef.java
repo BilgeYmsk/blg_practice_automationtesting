@@ -15,8 +15,6 @@ public class BasketPage_StepDef {
 
     BasketPage basketPage = new BasketPage();
 
-    ShopPage shopPage = new ShopPage();
-
     Homapage_Page homapagePage = new Homapage_Page();
 
     @And("Now click on Item link which navigates to proceed to basket page.")
