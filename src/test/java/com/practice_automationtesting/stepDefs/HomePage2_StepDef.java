@@ -6,19 +6,18 @@ import com.practice_automationtesting.utilities.BrowserUtils;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.browser.model.WindowState;
+import org.openqa.selenium.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+
 
 public class HomePage2_StepDef {
 
     ProductPage productPage = new ProductPage();
 
     BasketPage basketPage = new BasketPage();
+
+    static String actualStockText = "";
 
 
     @Then("User can view that Book in the Menu item with price.")
@@ -44,7 +43,7 @@ public class HomePage2_StepDef {
         //1.way für maxStuck -->dynamic
         String stockText = productPage.stock_loc.getText();
 //        firstElementPage.stock_loc.getText() = '9964 in stock' -->9964
-        String actualStockText = stockText.replace(" in stock", "");
+        actualStockText = stockText.replace(" in stock", "");
 
         // 2.way  für maxStuck -->dynamic
 //        String max = productPage.maxStuck_loc.getAttribute("max");
@@ -62,17 +61,17 @@ public class HomePage2_StepDef {
 
     @And("Now it throws an error prompt like you must enter a value between one and twenty")
     public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() throws InterruptedException {
-//        Alert alert=Driver.get().switchTo().alert();
-//        System.out.println("alert.getText() = " + alert.getText());
-//        Thread.sleep(2000);
-//        WebElement element = Driver.get().findElement(By.xpath("(//input[@type='hidden'])[1]"));
-//        System.out.println("element.getText() = " + element.getText());
-////        Thread.sleep(3000);
-//       assertTrue(Driver.get().findElement(By.xpath("/html")).getText().contains("Wert muss kleiner als oder gleich 9960 sein."));
-//        System.out.println("element = " + element.getAttribute(""));
-//        assertTrue(element.isDisplayed());
-//        System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
-    }
+
+        WebElement email = Driver.get().findElement(By.xpath("//input[@title='Qty']"));
+
+//        System.out.println("email.getAttribute(\"validationMessage\") = " + email.getAttribute("validationMessage"));
+
+        assertTrue(email.getAttribute("validationMessage").equals("Wert muss kleiner als oder gleich "+actualStockText+" sein."));
+     System.out.println("\"errorMessage.isDisplayed()\" = " + "errorMessage.isDisplayed()");
+
+}
+
+
 
 
     @And("Enter the Coupon code as {string} to get {int}rps off on the total.")
