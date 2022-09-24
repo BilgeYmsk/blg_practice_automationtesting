@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue="com/practice_automationtesting/stepDefs",
         dryRun = false,
-        tags = "@Login"
+        tags = "  @order"
 )
 
 public class CukesRunner {
