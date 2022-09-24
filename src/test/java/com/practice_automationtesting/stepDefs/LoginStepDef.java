@@ -66,7 +66,9 @@ public class LoginStepDef {
     }
 
     @And("User will be navigated to the Home page")
-    public void userWillBeNavigatedToTheHomePage() {myAccountPage.websiteIcon.click();}
+    public void userWillBeNavigatedToTheHomePage() {
+        myAccountPage.websiteIcon.click();
+    }
 
     @Then("Registration should fail with a warning message {string}")
     public void registration_should_fail_with_a_warning_message(String expectedTextError) {
@@ -83,12 +85,13 @@ public class LoginStepDef {
     }
 
     @And("the user enter registered {string} in Email textbox")
-    public void theUserEnterRegisteredInEmailTextbox(String email) {
+    public void theUserEnterRegisteredInEmailTextbox(String email) throws InterruptedException {
+        Thread.sleep(2000);
         myAccountPage.register("reg_email").sendKeys(email);
     }
 
     @And("Enter your  {string} in password textbox")
-    public void enterYourInPasswordTextbox(String password) {
+    public void enterYourInPasswordTextbox(String password) throws InterruptedException {
         myAccountPage.PasswordBtn_Rgstr.sendKeys(password);
         BrowserUtils.waitFor(2);
     }
@@ -98,7 +101,8 @@ public class LoginStepDef {
         String actualErrorText = myAccountPage.errorValidEmail.getText();
 
         System.out.println("actualErrorText = " + actualErrorText);
-        assertEquals(expectedErrorText,actualErrorText);
+        assertEquals(expectedErrorText, actualErrorText);
+
     }
 
     }
