@@ -1,4 +1,3 @@
-
 Feature: Shop-Filter By Price Functionality
 
   Background:the user on the login and on MyAccount Menu
@@ -19,7 +18,6 @@ Feature: Shop-Filter By Price Functionality
     Then  On clicking place-order button user completes the process where the page navigates to Order confirmation page with order details,bank details,customer details and billing details.
 
 
-
   Scenario:Shop By Price Functionality
     And   Adjust the filter by price between number
     And   Now click on Filter button
@@ -31,7 +29,7 @@ Feature: Shop-Filter By Price Functionality
     #Home / JavaScript
     Then  The user should be able to see only that particular product
 
-
+  @order
   Scenario Outline:Shop-Default-Sorting Funktionality
     And  Click on Sort and verify the value "Default sorting"
     Then Click on Sort "<orderby>"  item and verify User should be able to view "<order>" only
