@@ -66,10 +66,10 @@ public class BasketPage_StepDef {
         String actualNummer = actualAmountText.replace("₹", "");
         double totalPrice = Double.parseDouble(actualNummer);
         double expectedTotalPrice = 500.00;
-        System.out.println("totalPrice = " + totalPrice);
-        System.out.println("expectedTotalPrice = " + expectedTotalPrice);
-        System.out.println("actualAmountText = " + actualAmountText);
-        System.out.println("expectedAmountText = " + expectedAmountText);
+//        System.out.println("totalPrice = " + totalPrice);
+//        System.out.println("expectedTotalPrice = " + expectedTotalPrice);
+//        System.out.println("actualAmountText = " + actualAmountText);
+//        System.out.println("expectedAmountText = " + expectedAmountText);
         assertEquals(expectedAmountText, actualAmountText);
     }
 
@@ -78,8 +78,8 @@ public class BasketPage_StepDef {
 
         String actualBasketTotal = basketPage.basketTotalAmount_loc.getText();
         String expectedBasketTotal = "₹510.00";
-        System.out.println("actualBasketTotal = " + actualBasketTotal);
-        System.out.println("expectedBasketTotal = " + expectedBasketTotal);
+//        System.out.println("actualBasketTotal = " + actualBasketTotal);
+//        System.out.println("expectedBasketTotal = " + expectedBasketTotal);
         assertEquals(expectedBasketTotal, actualBasketTotal);
     }
 
@@ -120,8 +120,8 @@ public class BasketPage_StepDef {
         String actual_couponErrorMsg = basketPage.error_Coupon_Msg_loc.getText();
         String expected_couponErrorMsg = "The minimum spend for this coupon is ₹450.00.";
 
-        System.out.println("actual_couponErrorMsg = " + actual_couponErrorMsg);
-        System.out.println("expected_couponErrorMsg = " + expected_couponErrorMsg);
+//        System.out.println("actual_couponErrorMsg = " + actual_couponErrorMsg);
+//        System.out.println("expected_couponErrorMsg = " + expected_couponErrorMsg);
 
         assertEquals(expected_couponErrorMsg, actual_couponErrorMsg);
 
