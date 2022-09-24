@@ -4,21 +4,35 @@ Feature: Home Page Test 2
   Background: the user on the login and on MyAccount Menu
     #User can add a book by clicking on Add To Basket button which adds that book in to his Basket
     Given the user is on the login page
-    Then  the user click on Shop Menu
+    When  the user click on Shop Menu
     And   the user click on Home menu button
+#    Then  Verifying The Home page must contains only 3 Arrivals
     Then  Verify The Home page must contains only 3 Arrivals
     And   Now click the image in the Arrivals
     And   User can add a book by clicking on Add To Basket button
     Then  Verify that book in to his Basket
     Then  User can view that Book in the Menu item with price.
 
- @Alert
+  @Select
+  Scenario:Home Page Arrivals-Images-Add to Basket-Items-Check-out-Total&Sub-Total condition
+    And   Now click on Item link which navigates to proceed to basket page.
+    And   The total always < subtotal because taxes are added in the subtotal
+    #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out functionality
+    And   Now click on Proceed to Check out button which navigates to payment gateway page.
+    #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out-Payment Gateway
+    Then  User can view Billing Details,Order Details,Additional details and Payment gateway details.
+    Then  User has the feasibility to add coupon in the payment gateway page
+    And   Now user can fill his details in billing details form and can opt any payment in the payment gateway like Direct bank transfer,cheque,cash or paypal.
+    #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out-Payment Gateway-Place order
+    And   Now click on Place Order button to complete process
+    Then  On clicking place-order button user completes the process where the page navigates to Order confirmation page with order details,bank details,customer details and billing details.
+
+  @dnm
   Scenario:Home Page Arrivals-Images-Add to Basket with more books
     And   Select more books than the books in stock.
     #elect more books than the books in stock.Ex if the stock has 20 books, try to add 21.
     And   Click the add to basket button
     And   Now it throws an error prompt like you must enter a value between one and twenty
-  #############burada verify edemiyorum alert calismiyor###########  noch nicht fertig ##############
 
   @rps
   Scenario:Home Page Arrivals-Images-Add to Basket-Items/Coupon/value>450
@@ -36,6 +50,7 @@ Feature: Home Page Test 2
     And   Now click on Item link which navigates to proceed to basket page.
     And   Now click on Remove this icon in Check out page
     Then  Verify user can remove the book at the time of check out
+#    Then  the user removes the book that choosed book from check out
     And   Click on return to shop button
     Then  Verify  user can not able to apply coupon by entering "krishnasakinala" which is applicable for the book price > 450 rps
 
@@ -55,17 +70,3 @@ Feature: Home Page Test 2
     Then  User has the feasibility to find the total price of the books at Basket Totals
     #Then  Now user can find total and subtotal values just above the Proceed to Checkout button.
 
-  @Select
-  Scenario:Home Page Arrivals-Images-Add to Basket-Items-Check-out-Total&Sub-Total condition
-    And   Now click on Item link which navigates to proceed to basket page.
-    And   The total always < subtotal because taxes are added in the subtotal
-    #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out functionality
-    And   Now click on Proceed to Check out button which navigates to payment gateway page.
-    #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out-Payment Gateway
-    Then  User can view Billing Details,Order Details,Additional details and Payment gateway details.
-    And   Now user can fill his details in billing details form and can opt any payment in the payment gateway like Direct bank transfer,cheque,cash or paypal.
-    ##################Select Country Problem ###############
-    Then  User has the feasibility to add coupon in the payment gateway page
-    #Scenario: Home Page Arrivals-Images-Add to Basket-Items-Check-out-Payment Gateway-Place order
-    And   Now click on Place Order button to complete process
-    Then  On clicking place-order button user completes the process where the page navigates to Order confirmation page with order details,bank details,customer details and billing details.
