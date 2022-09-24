@@ -5,7 +5,7 @@ Feature: MY ACCOUNT - Login
     Given the user is on the login page
     When  the user click on My Account Menu
 
-
+  @Login
   Scenario: Login with valid username and valid password
     And Enter registered username in username textbox
     And Enter password in password textbox
