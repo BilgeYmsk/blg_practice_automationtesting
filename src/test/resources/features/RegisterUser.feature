@@ -10,7 +10,7 @@ Feature: MY ACCOUNT - REGISTRATION
     And   the user enter registered Email Address in Email-Address textbox
     And   Enter your own password in password textbox
     And   Click on Register button
-    Then   User will be registered successfully
+    Then  User will be registered successfully
     And   User will be navigated to the Home page
 
 
@@ -24,8 +24,8 @@ Feature: MY ACCOUNT - REGISTRATION
   Scenario Outline: All Registration-Sign-in (negative)
     And   the user enter registered "<email>" in Email textbox
     And   Enter your  "<password>" in password textbox
-    And Click on Register button
-    Then The user should be able to see a warning message "<expectedErrorMsg>"
+    And   Click on Register button
+    Then  The user should be able to see a warning message "<expectedErrorMsg>"
     Examples:
       | email                 | password    | expectedErrorMsg                                                               |
       | sdet_526@gmail.com    |             | Error: An account is already registered with your email address. Please login. |
