@@ -2,7 +2,7 @@ package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.BasketPage;
 import com.practice_automationtesting.pages.ProductPage;
-import com.practice_automationtesting.utilities.BrowserUtils;
+import static com.practice_automationtesting.utilities.BrowserUtils.*;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -23,7 +23,7 @@ public class HomePage2_StepDef {
     @Then("User can view that Book in the Menu item with price.")
     public void user_can_view_that_Book_in_the_Menu_item_with_price() throws InterruptedException {
 
-        BrowserUtils.scrollToElement(basketPage.body_loc);
+        scrollToElement(basketPage.body_loc);
         basketPage.viewBasket_loc.click();
         Thread.sleep(3000);
 
@@ -67,7 +67,7 @@ public class HomePage2_StepDef {
 //        System.out.println("email.getAttribute(\"validationMessage\") = " + email.getAttribute("validationMessage"));
 
         assertTrue(email.getAttribute("validationMessage").equals("Wert muss kleiner als oder gleich "+actualStockText+" sein."));
-     System.out.println("\"errorMessage.isDisplayed()\" = " + "errorMessage.isDisplayed()");
+
 
 }
 
