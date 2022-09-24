@@ -3,7 +3,7 @@ Feature: MY ACCOUNT - Login
 
   Background: the user on the login and on MyAccount Menu
     Given the user is on the login page
-    Then  the user click on My Account Menu
+    When  the user click on My Account Menu
 
 
   Scenario: Login with valid username and valid password
