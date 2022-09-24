@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.*;
 
+import static java.awt.SystemColor.text;
 import static org.junit.Assert.*;
 
 
@@ -45,11 +46,15 @@ public class HomePage2_StepDef {
 //        firstElementPage.stock_loc.getText() = '9964 in stock' -->9964
         actualStockText = stockText.replace(" in stock", "");
 
+        int actualStock= Integer.parseInt(actualStockText);
+//        System.out.println("actualStock = " + actualStock);
+
         // 2.way  für maxStuck -->dynamic
 //        String max = productPage.maxStuck_loc.getAttribute("max");
 //        System.out.println("max = " + max);
 
-        productPage.productStuck.sendKeys(actualStockText + 1);
+        productPage.productStuck.sendKeys(""+(actualStock + 1));
+
 //        Thread.sleep(3);
 
     }
@@ -62,11 +67,12 @@ public class HomePage2_StepDef {
     @And("Now it throws an error prompt like you must enter a value between one and twenty")
     public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() throws InterruptedException {
 
-        WebElement email = Driver.get().findElement(By.xpath("//input[@title='Qty']"));
+        WebElement warnungMsg = Driver.get().findElement(By.xpath("//input[@title='Qty']"));
 
-//        System.out.println("email.getAttribute(\"validationMessage\") = " + email.getAttribute("validationMessage"));
+//        System.out.println("warnungMsg.getAttribute(\"validationMessage\") = " + warnungMsg.getAttribute("validationMessage"));
 
-        assertTrue(email.getAttribute("validationMessage").equals("Wert muss kleiner als oder gleich "+actualStockText+" sein."));
+        assertTrue(warnungMsg.getAttribute("validationMessage").equals("Wert muss kleiner als oder gleich "+actualStockText+" sein."));
+
 
 
 }
