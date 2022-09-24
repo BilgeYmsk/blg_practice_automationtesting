@@ -7,10 +7,7 @@ import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.*;
-
-import static java.awt.SystemColor.text;
 import static org.junit.Assert.*;
-
 
 public class HomePage2_StepDef {
 
@@ -73,12 +70,7 @@ public class HomePage2_StepDef {
 
         assertTrue(warnungMsg.getAttribute("validationMessage").equals("Wert muss kleiner als oder gleich "+actualStockText+" sein."));
 
-
-
 }
-
-
-
 
     @And("Enter the Coupon code as {string} to get {int}rps off on the total.")
     public void enterTheCouponCodeAsToGetRpsOffOnTheTotal(String coupenCode, int discount) throws InterruptedException {
