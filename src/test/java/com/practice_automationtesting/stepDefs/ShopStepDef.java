@@ -2,12 +2,10 @@ package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.ProductPage;
 import com.practice_automationtesting.pages.ShopPage;
-import com.practice_automationtesting.utilities.BrowserUtils;
+import static com.practice_automationtesting.utilities.BrowserUtils.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-
 import static org.junit.Assert.*;
-
 import org.openqa.selenium.Keys;
 
 
@@ -19,7 +17,7 @@ public class ShopStepDef {
     @Then("the user click on Shop Menu")
     public void theUserClickOnShopMenu() {
         shopPage.navigateToMenu("Shop");
-        BrowserUtils.waitFor(1);
+        waitFor(1);
     }
 
     @And("Adjust the filter by price between number")
@@ -37,7 +35,7 @@ public class ShopStepDef {
             shopPage.priceLeft.sendKeys(Keys.ARROW_LEFT);
         }
 
-        BrowserUtils.waitFor(2);
+        waitFor(2);
 
     }
 
@@ -45,7 +43,7 @@ public class ShopStepDef {
     public void nowClickOnFilterButton() throws InterruptedException {
         Thread.sleep(2000);
         shopPage.filterBtn.click();
-        BrowserUtils.waitFor(5);
+        waitFor(5);
 
     }
 
@@ -82,10 +80,10 @@ public class ShopStepDef {
     }
 
     @Then("Click on Sort {string}  item in Default sorting dropdown")
-    public void click_on_Sort_item_in_Default_sorting_dropdown(String orderBy) throws InterruptedException {
+    public void click_on_Sort_item_in_Default_sorting_dropdown(String orderBy,String order) throws InterruptedException {
 
-//        shopPage.selectSorting_OrderBy(orderBy);
-//        Thread.sleep(3000);
+       shopPage.selectSorting_OrderBy(orderBy,order);
+        Thread.sleep(3000);
     }
 
     @Then("Click on Sort {string}  item and verify User should be able to view {string} only")

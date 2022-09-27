@@ -4,9 +4,8 @@ import com.practice_automationtesting.pages.ProductPage;
 import com.practice_automationtesting.pages.Homapage_Page;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class HomePage1_StepDef {
 

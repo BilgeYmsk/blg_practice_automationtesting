@@ -1,7 +1,7 @@
 package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.MyAccount_RegistrationPage;
-import com.practice_automationtesting.utilities.BrowserUtils;
+import static com.practice_automationtesting.utilities.BrowserUtils.*;
 import com.practice_automationtesting.utilities.ConfigurationReader;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -9,8 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class LoginStepDef {
 
@@ -28,7 +27,7 @@ public class LoginStepDef {
     public void the_user_click_on_My_Account_Menu() {
 
         myAccountPage.navigateToMenu("My Account");
-        BrowserUtils.waitFor(1);
+        waitFor(1);
 
     }
 
@@ -66,7 +65,9 @@ public class LoginStepDef {
     }
 
     @And("User will be navigated to the Home page")
-    public void userWillBeNavigatedToTheHomePage() {myAccountPage.websiteIcon.click();}
+    public void userWillBeNavigatedToTheHomePage() {
+        myAccountPage.websiteIcon.click();
+    }
 
     @Then("Registration should fail with a warning message {string}")
     public void registration_should_fail_with_a_warning_message(String expectedTextError) {
@@ -83,14 +84,15 @@ public class LoginStepDef {
     }
 
     @And("the user enter registered {string} in Email textbox")
-    public void theUserEnterRegisteredInEmailTextbox(String email) {
+    public void theUserEnterRegisteredInEmailTextbox(String email) throws InterruptedException {
+        Thread.sleep(2000);
         myAccountPage.register("reg_email").sendKeys(email);
     }
 
     @And("Enter your  {string} in password textbox")
-    public void enterYourInPasswordTextbox(String password) {
+    public void enterYourInPasswordTextbox(String password) throws InterruptedException {
         myAccountPage.PasswordBtn_Rgstr.sendKeys(password);
-        BrowserUtils.waitFor(2);
+       Thread.sleep(2000);
     }
 
     @Then("The user should be able to see a warning message {string}")
@@ -98,8 +100,9 @@ public class LoginStepDef {
         String actualErrorText = myAccountPage.errorValidEmail.getText();
 
         System.out.println("actualErrorText = " + actualErrorText);
-        assertEquals(expectedErrorText,actualErrorText);
-    }
+        assertEquals(expectedErrorText, actualErrorText);
 
     }
+
+}
 

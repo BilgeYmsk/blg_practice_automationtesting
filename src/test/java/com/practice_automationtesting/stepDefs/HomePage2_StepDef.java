@@ -2,17 +2,12 @@ package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.BasketPage;
 import com.practice_automationtesting.pages.ProductPage;
-import com.practice_automationtesting.utilities.BrowserUtils;
+import static com.practice_automationtesting.utilities.BrowserUtils.*;
 import com.practice_automationtesting.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.browser.model.WindowState;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.openqa.selenium.*;
+import static org.junit.Assert.*;
 
 public class HomePage2_StepDef {
 
@@ -20,11 +15,13 @@ public class HomePage2_StepDef {
 
     BasketPage basketPage = new BasketPage();
 
+    static String actualStockText = "";
+
 
     @Then("User can view that Book in the Menu item with price.")
     public void user_can_view_that_Book_in_the_Menu_item_with_price() throws InterruptedException {
 
-        BrowserUtils.scrollToElement(basketPage.body_loc);
+        scrollToElement(basketPage.body_loc);
         basketPage.viewBasket_loc.click();
         Thread.sleep(3000);
 
@@ -44,16 +41,17 @@ public class HomePage2_StepDef {
         //1.way für maxStuck -->dynamic
         String stockText = productPage.stock_loc.getText();
 //        firstElementPage.stock_loc.getText() = '9964 in stock' -->9964
-        String actualStockText = stockText.replace(" in stock", "");
+        actualStockText = stockText.replace(" in stock", "");
+
+        int actualStock= Integer.parseInt(actualStockText);
+//        System.out.println("actualStock = " + actualStock);
 
         // 2.way  für maxStuck -->dynamic
         String max = productPage.maxStuck_loc.getAttribute("max");
         System.out.println("max = " + max);
-        System.out.println("actualStockText = " + actualStockText);
+      
+        productPage.productStuck.sendKeys(""+(actualStock + 1));
 
-        productPage.productStuck.clear();
-        Thread.sleep(3000);
-        productPage.productStuck.sendKeys(actualStockText);
 //        Thread.sleep(3);
 
     }
@@ -65,30 +63,14 @@ public class HomePage2_StepDef {
 
     @And("Now it throws an error prompt like you must enter a value between one and twenty")
     public void nowItThrowsAnErrorPromptLikeYouMustEnterAValueBetweenOneAndTwenty() throws InterruptedException {
-        // 2.way  für maxStuck -->dynamic
-        String max = productPage.maxStuck_loc.getAttribute("max");
-        String actualText = productPage.stockText_loc.getText();
-        System.out.println("actualText = " + actualText);
 
-//        String expectedText = "VIEW BASKET"+
-//        "You cannot add that amount to the cart — we have "+max+" in stock and you already have 1 in your cart.";
-//        String expectedText = "";
-//        assertEquals(expectedText, actualText);
+        WebElement warnungMsg = Driver.get().findElement(By.xpath("//input[@title='Qty']"));
 
-        assertTrue(actualText.contains("You cannot add that amount to the cart — we have"));
+//        System.out.println("warnungMsg.getAttribute(\"validationMessage\") = " + warnungMsg.getAttribute("validationMessage"));
 
-//        Alert alert=Driver.get().switchTo().alert();
-//        System.out.println("alert.getText() = " + alert.getText());
-//        Thread.sleep(2000);
-//        WebElement element = Driver.get().findElement(By.xpath("(//input[@type='hidden'])[1]"));
-//        System.out.println("element.getText() = " + element.getText());
-////        Thread.sleep(3000);
-//       assertTrue(Driver.get().findElement(By.xpath("/html")).getText().contains("Wert muss kleiner als oder gleich 9960 sein."));
-//        System.out.println("element = " + element.getAttribute(""));
-//        assertTrue(element.isDisplayed());
-//        System.out.println("Wert muss kleiner als oder gleich 9960 sein.");
-    }
+        assertTrue(warnungMsg.getAttribute("validationMessage").equals("Wert muss kleiner als oder gleich "+actualStockText+" sein."));
 
+}
 
     @And("Enter the Coupon code as {string} to get {int}rps off on the total.")
     public void enterTheCouponCodeAsToGetRpsOffOnTheTotal(String coupenCode, int discount) throws InterruptedException {

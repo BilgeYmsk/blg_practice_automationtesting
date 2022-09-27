@@ -2,9 +2,8 @@ package com.practice_automationtesting.stepDefs;
 
 import com.practice_automationtesting.pages.BasePage;
 import com.practice_automationtesting.pages.CheckOutPage;
-import com.practice_automationtesting.utilities.BrowserUtils;
+import static com.practice_automationtesting.utilities.BrowserUtils.*;
 import io.cucumber.java.en.Then;
-
 import static org.junit.Assert.*;
 
 public class CheckOut_StepDef extends BasePage {
@@ -29,7 +28,7 @@ public class CheckOut_StepDef extends BasePage {
         checkOutPage.billingDetailsForm("billing_address_2");
         checkOutPage.billingDetailsForm("billing_city");
         checkOutPage.billingDetailsForm("billing_postcode");
-        BrowserUtils.scrollToElement(checkOutPage.placeOrderBtn_loc);
+        scrollToElement(checkOutPage.placeOrderBtn_loc);
 
     }
 
