@@ -34,6 +34,7 @@ Feature: Home Page Test 2
     And   Click the add to basket button
     And   Now it throws an error prompt like you must enter a value between one and twenty
 
+
   @rps
   Scenario:Home Page Arrivals-Images-Add to Basket-Items/Coupon/value>450
     And   Now click on Item link which navigates to proceed to basket page.

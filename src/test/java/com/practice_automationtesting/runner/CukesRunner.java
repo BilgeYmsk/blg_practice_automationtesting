@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
         glue="com/practice_automationtesting/stepDefs",
         dryRun = false,
         tags = "  @order"
+
 )
 
 public class CukesRunner {

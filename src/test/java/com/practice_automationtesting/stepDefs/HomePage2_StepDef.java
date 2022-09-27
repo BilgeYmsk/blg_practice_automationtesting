@@ -47,9 +47,9 @@ public class HomePage2_StepDef {
 //        System.out.println("actualStock = " + actualStock);
 
         // 2.way  für maxStuck -->dynamic
-//        String max = productPage.maxStuck_loc.getAttribute("max");
-//        System.out.println("max = " + max);
-
+        String max = productPage.maxStuck_loc.getAttribute("max");
+        System.out.println("max = " + max);
+      
         productPage.productStuck.sendKeys(""+(actualStock + 1));
 
 //        Thread.sleep(3);

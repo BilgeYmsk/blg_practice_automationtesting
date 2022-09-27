@@ -28,15 +28,10 @@ public class HomePage1_StepDef {
     }
 
     @Then("Verify The Home page must contains only {int} Arrivals")
-    public void verify_The_Home_page_must_contains_only_Arrivals(int arrival) {
-        homapagePage.arrivalsSize_Mtd(arrival);
-    }
+    public void verify_The_Home_page_must_contains_only_Arrivals(int arrival) {homapagePage.arrivalsSize_Mtd(arrival);}
 
     @Then("Now click the image in the Arrivals")
-    public void now_click_the_image_in_the_Arrivals() {
-        homapagePage.firstElementArrival_loc.click();
-
-    }
+    public void now_click_the_image_in_the_Arrivals() {homapagePage.firstElementArrival_loc.click();}
 
     @And("User can add a book by clicking on Add To Basket button")
     public void userCanAddABookByClickingOnAddToBasketButton() {
